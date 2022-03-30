@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Verification{% endblock %}
+
+{% block body %}
+<div class="section">
+	<div class="container">
+        <div class="row">
+           <div class="col-md-6">
+                <div class="order_review">
+                    <div class="heading_s1">
+                        <h4>Verification</h4>
+                    </div>
+                    <div class="table-responsive order_table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Demande</th>
+                                    <th>Informations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for demande in demandes %}
+                                <tr>
+                                    <td> Commune Depart <span class="product-qty"></span></td>
+                                    <td>{{demande.namedepart}}</td>
+                                </tr>
+                                <tr>
+                                    <td> Commune Arrive <span class="product-qty"></span></td>
+
+                                    <td>{{demande.namearrive}}</td>
+                                </tr>
+                                <tr>
+                                    <td> Nom destinataire <span class="product-qty"></span></td>
+
+                                    <td>{{demande.fullname}}</td>
+                                </tr>
+                                <tr>
+                                    <td> Valeur colis <span class="product-qty"></span></td>
+
+                                    <td>{{demande.value}} FR</td>
+                                </tr>
+                                <tr>
+                                    <td> Numéro destinataire <span class="product-qty"></span></td>
+
+                                    <td>{{demande.phone}}dc</td>
+                                </tr>
+                            
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    {% if prix %}
+                                        <td class="product-subtotal">{{prix}} FR</td>
+                                    {% endif %}
+                                </tr>
+                                
+                                {# <tr>
+                                    <th>Total</th>
+                                    <td class="product-subtotal">$120</td>
+                                </tr> #}
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="payment_method">
+                        <div class="heading_s1">
+                            <h4>Payment</h4>
+                        </div>
+
+                    </div>
+                    <a href="{{path('app_order')}} " id="checkout-button"  class="btn btn-fill-out btn-block">Valider la commande</a>
+                    <a href="{{path('app_demande_edit', {'id': demande.id})}} " class="btn btn-fill-out btn-block">Modifier</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+        	<div class="col-md-6">
+                <div class="heading_s1">
+                    <h4>Description du colis</h4>
+                    <div class="form-group mb-0">
+                        <textarea disabled name="name" rows="8" cols="50">
+                        {% for demande in demandes %}
+                            {{demande.description}}
+                        {% endfor %}
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

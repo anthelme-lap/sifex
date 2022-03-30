@@ -1,19 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}SIFEX{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset(' assets/images/favicon/favicon-32x32.png')}}">
+        <link rel="apple-touch-icon" sizes="180x180" href=" {{asset(' assets/images/favicon/apple-touch-icon.png')}}">
+        {# <link rel="icon" type="image/png" sizes="32x32" href="/"> #}
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon/favicon-16x16.png')}} ">
+        <link rel="manifest" href="{{asset('assets/images/favicon/site.webmanifest')}}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="Sifex" name="author">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Exclusively for all! Take advantage of up to -50% on these offers during our smart days. Shop smart with discounts on electronics, phones and home goods. Up to -50% Buyer Protection. Free Shipping. Summer promo. Great Value. A multitude of sellers.">
+        <meta name="keywords" content="">
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
         {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        
     </head>
     <body>
+        {# HEADER #}
+        {% include "partials/messageFash.html.twig" %}
+        {% include "partials/header.html.twig" %}
+
         {% block body %}{% endblock %}
+        
+        {# FOOTER #}
+        {% include "partials/footer.html.twig" %}
+
+        {% block javascripts %}
+            <script src="{{asset('assets/js/jquery-1.12.4.min.js') }}"></script> 
+            <script src="{{asset('assets/js/popper.min.js')}} "></script>
+            <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}} "></script>
+            <script src="{{asset('assets/owlcarousel/js/owl.carousel.min.js')}} "></script>
+            <script src="{{asset('assets/js/magnific-popup.min.js')}} "></script>
+            <script src="{{asset('assets/js/waypoints.min.js')}} "></script> 
+            <script src="{{asset('assets/js/parallax.js')}} "></script> 
+            <script src="{{asset('assets/js/jquery.countdown.min.js')}} "></script> 
+            <script src="{{asset('assets/js/imagesloaded.pkgd.min.js')}} "></script>
+            <script src="{{asset('assets/js/isotope.min.js')}} "></script>
+            <script src="{{asset('assets/js/jquery.dd.min.js')}} "></script>
+            <script src="{{asset('assets/js/slick.min.js')}} "></script>
+            <script src="{{asset('assets/js/jquery.elevatezoom.js')}} "></script>
+            <script src="{{asset('assets/js/scripts.js')}} "></script>
+    
+        {% endblock %}
+       
     </body>
 </html>

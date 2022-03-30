@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CheckoutController!{% endblock %}
+
+{% block body %}
+ {{ include ("partials/section_title.html.twig", {'name':'Mon compte'}) }}
+ {% include "partials/messageFash.html.twig" %}
+
+{% endblock %}

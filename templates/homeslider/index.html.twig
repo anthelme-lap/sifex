@@ -1,0 +1,64 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Homeslider index{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><a href="{{ path('app_homeslider_new') }} ">Créer</a> </h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>ButtonUrl</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Titre</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom de commune d'arrivée</th>
+                            <th>actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for homeslider in homesliders %}
+                        <tr>
+                            <td>{{ homeslider.id }}</td>
+                            <td>{{ homeslider.buttonUrl }}</td>
+                            <td>{{ homeslider.description }}</td>
+                            <td><img src="{{ vich_uploader_asset(homeslider) }}" alt=""> </td>
+                            <td>{{ homeslider.titre }}</td>
+                            <td>
+                                {{ include('homeslider/_delete_form.html.twig') }}
+                                <a href="{{ path('app_homeslider_edit', {'id': homeslider.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

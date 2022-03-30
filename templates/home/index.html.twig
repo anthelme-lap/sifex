@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    {# {{ include('partials/messageFash.html.twig') }} #}
+
+{# {{  include ("partials/section_title.html.twig", {'name':'Connexion'})}} #}
+
+    <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
+        <div id="carouselExampleControls" class="carousel slide carousel-fade light_arrow" data-ride="carousel">
+            <div class="carousel-inner">
+            
+                <div class="carousel-item active background_bg" data-img-src="">
+                    <div class="banner_slide_content">
+                        <div class="container"><!-- STRART CONTAINER -->
+                            <div class="row">
+                                <div class="col-lg-7 col-9">
+                                    <div class="banner_content overflow-hidden">
+                                        <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">description</h5>
+                                        <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">title</h2>
+                                        {# <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" href="" data-animation="slideInLeft" data-animation-delay="1.5s">Shop Now</a> #}
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- END CONTAINER-->
+                    </div>
+                </div>
+           
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><i class="ion-chevron-left"></i></a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><i class="ion-chevron-right"></i></a> 
+        </div>
+    </div>
+
+
+{# AFFICHAGE DES DIFFRENTS SERVICES #}
+
+<div class="section small_pt pb_70">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+            	<div class="heading_s1 text-center">
+                	<h2>Exclusive Products</h2>
+                </div>
+            </div>
+		</div>
+        <div class="row">
+        	<div class="col-12">
+            	
+                <div class="tab-content">
+                	<div class="tab-pane fade show active" id="arrival" role="tabpanel" aria-labelledby="arrival-tab">
+                        <div class="row shop_container">
+                            <div class="col-lg-6 col-md-6 col-6">
+                                <div class="product">
+                                    <div class="product_img">
+                                        <a href="{{path('app_demande_new')}}"><img src="assets/images/boy.png" alt="product_img1">
+                                        </a>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_title"><a href="{{path('app_demande_new')}}">Demande de livreur</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-6">
+                                <div class="product">
+                                    <div class="product_img">
+                                        <a href="">
+                                            <img src="assets/images/images.png" alt="product_img1">
+                                        </a>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_title"><a href="">Blue Dress For Woman</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
