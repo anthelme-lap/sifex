@@ -39,17 +39,6 @@ class Demande
      */
     private $fullname;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Depart::class, inversedBy="demandes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $fkdepart;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Arrive::class, inversedBy="demandes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $fkarrive;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="demandes")
@@ -66,6 +55,18 @@ class Demande
      * @ORM\OneToOne(targetEntity=Commande::class, mappedBy="fkdemande", cascade={"persist", "remove"})
      */
     private $commande;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Arrive::class, inversedBy="demandes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $fkarrive;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Depart::class, inversedBy="demandes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $fkdepart;
    
     public function getId(): ?int
     {
@@ -120,29 +121,6 @@ class Demande
         return $this;
     }
 
-    public function getFkdepart(): ?Depart
-    {
-        return $this->fkdepart;
-    }
-
-    public function setFkdepart(?Depart $fkdepart): self
-    {
-        $this->fkdepart = $fkdepart;
-
-        return $this;
-    }
-
-    public function getFkarrive(): ?Arrive
-    {
-        return $this->fkarrive;
-    }
-
-    public function setFkarrive(?Arrive $fkarrive): self
-    {
-        $this->fkarrive = $fkarrive;
-
-        return $this;
-    }
 
     public function getFkuser(): ?User
     {
@@ -181,6 +159,30 @@ class Demande
         }
 
         $this->commande = $commande;
+
+        return $this;
+    }
+
+    public function getFkarrive(): ?Arrive
+    {
+        return $this->fkarrive;
+    }
+
+    public function setFkarrive(?Arrive $fkarrive): self
+    {
+        $this->fkarrive = $fkarrive;
+
+        return $this;
+    }
+
+    public function getFkdepart(): ?Depart
+    {
+        return $this->fkdepart;
+    }
+
+    public function setFkdepart(?Depart $fkdepart): self
+    {
+        $this->fkdepart = $fkdepart;
 
         return $this;
     }

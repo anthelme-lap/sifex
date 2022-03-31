@@ -34,6 +34,7 @@ class Arrive
         $this->demandes = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,6 +50,11 @@ class Arrive
         $this->namearrive = $namearrive;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->namearrive;
     }
 
     /**
@@ -79,10 +85,5 @@ class Arrive
         }
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->namearrive;
     }
 }

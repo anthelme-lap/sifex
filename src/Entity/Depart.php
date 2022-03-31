@@ -34,6 +34,7 @@ class Depart
         $this->demandes = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,6 +50,12 @@ class Depart
         $this->namedepart = $namedepart;
 
         return $this;
+    }
+
+
+    public function __toString()
+    {
+        return $this->namedepart;
     }
 
     /**
@@ -79,10 +86,5 @@ class Depart
         }
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->namedepart;
     }
 }
