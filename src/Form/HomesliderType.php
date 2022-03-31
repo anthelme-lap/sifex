@@ -18,7 +18,8 @@ class HomesliderType extends AbstractType
             ->add('buttonUrl')
             ->add('imageFile', VichImageType::class,[
                 'required' => false,
-                'label' => 'image'
+                'label' => 'image',
+                'empty_data' => ''
             ])
             ->add('description')
         ;
