@@ -30,6 +30,8 @@ class AccountController extends AbstractController
     public function index(): Response
     {
         if (!$this->getUser()) {
+
+            $this->addFlash('danger', 'Vous devez vous connecter avant d\'acceder a cette page');
             return $this->redirectToRoute('app_home');
         }
         
@@ -38,8 +40,7 @@ class AccountController extends AbstractController
         $commandes = $this->commandeRepos->findCommande($this->getUser()->getId());
 
         $prix = $this->prixService->sendPrix($departs,$arrive);
-
-        // dd($commandes);
+        
         return $this->render('account/index.html.twig',[
             'demandes' => $this->demandeRepos->findLastDemandeUser($this->getUser()->getId()),
             'prix' => $prix,

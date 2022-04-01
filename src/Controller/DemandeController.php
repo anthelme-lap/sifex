@@ -32,7 +32,7 @@ class DemandeController extends AbstractController
      */
     public function verification(DemandeRepository $demandeRepository,Prix $prixservice): Response
     {
-        // dd($demandeRepository->findLastDemandeUser( $user));
+        
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_home');
         }
@@ -56,8 +56,8 @@ class DemandeController extends AbstractController
     {
         if (!$this->getUser()) 
         {
+            $this->addFlash('danger', 'Connectez-vous avant de faire une demande');
             return $this->redirectToRoute('app_home');
-          
         }
         
         $demande = new Demande();
@@ -146,10 +146,7 @@ class DemandeController extends AbstractController
 
         $commandeRepository->add($commande);
 
-        return $this->render('account/order.html.twig',[
-            // 'prix' => $prix,
-            // 'commandes' => $commandes
-        ]);
+        return $this->render('account/order.html.twig');
     }
 
 }

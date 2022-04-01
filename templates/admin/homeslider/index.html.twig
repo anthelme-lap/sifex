@@ -48,7 +48,7 @@
                             <td><img src="{{ vich_uploader_asset(homeslider) }}" width="100" alt=""> </td>
                             <td>{{ homeslider.titre }}</td>
                             <td>
-                                {{ include('homeslider/_delete_form.html.twig') }}
+                                {{ include('admin/homeslider/_delete_form.html.twig') }}
                                 <a href="{{ path('app_homeslider_edit', {'id': homeslider.id}) }}">edit</a>
                             </td>
                         </tr>
